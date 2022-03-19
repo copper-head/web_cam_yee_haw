@@ -9,7 +9,7 @@ video_cap = cv2.VideoCapture(0)
 client_sender = sender.Sender(('10.1.10.213', 60000))
 
 success, frame = video_cap.read()
-scaled_frame = frame.resize(100, 100)
+scaled_frame = frame.resize(int(frame.shape[1] * 0.1), int(frame.shape[0] * 0.1))
 
 bytes_stream = BytesIO()
 np.save(bytes_stream, scaled_frame)
