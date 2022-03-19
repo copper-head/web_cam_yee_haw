@@ -12,7 +12,7 @@ success, frame = video_cap.read()
 
 bytes_stream = BytesIO()
 np.save(bytes_stream, frame)
-print(bytes_stream)
+print(bytes_stream.getvalue())
 
 
 while True:
