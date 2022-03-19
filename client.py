@@ -9,9 +9,10 @@ video_cap = cv2.VideoCapture(0)
 client_sender = sender.Sender(('10.1.10.213', 60000))
 
 success, frame = video_cap.read()
+scaled_frame = frame.resize(100, 100)
 
 bytes_stream = BytesIO()
-np.save(bytes_stream, frame)
+np.save(bytes_stream, scaled_frame)
 print(len(bytes_stream.getvalue()))
 
 
