@@ -1,7 +1,5 @@
 import numpy as np
-import cv2
 import socket
-import asyncio
 from collections import deque
 import constants
 

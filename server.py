@@ -1,17 +1,10 @@
-import cv2
 import receiver
+import constants
 
-server_reciever = receiver.Receiver()
+server_receiver = receiver.Receiver(constants.HOST_ADDRESS)
 
 if __name__ == "__main__":
 
     while True:
 
-        # GET_FRAMES
-        frame = "frame here"
-
-        # Display image
-        cv2.imshow("image", frame)
-
-        #if cv2.waitKey(1) & 0xFF == ord('q'):
-        #  break
+        server_receiver.get_frames()
