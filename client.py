@@ -1,10 +1,18 @@
 import cv2
 import constants
 import sender
+import numpy as np
+from io import BytesIO
 
 
 video_cap = cv2.VideoCapture(0)
 client_sender = sender.Sender(('10.1.10.213', 60000))
+
+success, frame = video_cap.read()
+
+bytes_stream = BytesIO()
+np.save(bytes_stream, frame)
+print(bytes_stream)
 
 
 while True:
