@@ -24,7 +24,7 @@ class Sender:
         # Create a byte stream to send data
         bytes_stream = BytesIO()
         np.save(bytes_stream, frame)
-        self._socket.sendall(bytes_stream)
+        self._socket.sendall(bytes_stream.getvalue())
     
     # Close socket
     def close_socket(self):
