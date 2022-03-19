@@ -17,6 +17,8 @@ while True:
         client_sender.close_socket()
         break
     
+    frame = cv2.resize(frame.shape[1]*0.1, frame.shape[0]*0.1)
+
     client_sender.send_img(frame)
 
     cv2.imshow("frame", frame)
