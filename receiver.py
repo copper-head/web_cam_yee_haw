@@ -13,8 +13,8 @@ class Receiver:
         self.deque = deque()
 
         self.receiver = socket.socket()
-        self.receiver.bind(constants.HOST_ADDRESS)
-        #self.receiver.connect(local_address)
+        self.receiver.bind(("10.1.10.213", 60000))
+        print(constants.HOST_ADDRESS)
         self.receiver.listen()
         self.sock, self.remote_addr = self.receiver.accept()
     

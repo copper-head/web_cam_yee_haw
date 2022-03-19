@@ -4,7 +4,7 @@ import sender
 
 
 video_cap = cv2.VideoCapture(0)
-client_sender = sender.Sender()
+client_sender = sender.Sender(('10.1.10.213', 60000))
 
 
 while True:
