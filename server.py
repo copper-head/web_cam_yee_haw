@@ -1,7 +1,7 @@
 import receiver
 import constants
 
-server_receiver = receiver.Receiver(constants.HOST_ADDRESS)
+server_receiver = receiver.Receiver()
 
 if __name__ == "__main__":
 
