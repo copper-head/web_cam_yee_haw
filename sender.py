@@ -7,9 +7,7 @@ class Sender:
 
     def __init__(self, remote_address):
 
-        self._socket = socket.socket()
-        self._socket.bind(constants.SOURCE_ADDRESS)
-        self._socket.create_connection(remote_address)
+        self._socket = socket.create_connection(remote_address, source_address=constants.SOURCE_ADDRESS)
         
 
     '''
