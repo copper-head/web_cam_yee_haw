@@ -20,7 +20,7 @@ class Receiver:
 
         while True:
             print("waiting for data...")
-            data = self.receiver.recv(1024)
+            data = self.sock.recv(1024)
             print(data)
 
 
