@@ -15,7 +15,7 @@ bytes_stream = BytesIO()
 np.save(bytes_stream, scaled_frame)
 print(len(bytes_stream.getvalue()))
 
-cv2.imshow(scaled_frame)
+cv2.imshow("frame", scaled_frame)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
