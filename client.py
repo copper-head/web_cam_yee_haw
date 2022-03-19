@@ -5,7 +5,7 @@ import numpy as np
 from io import BytesIO
 
 
-video_cap = cv2.VideoCapture(0)
+video_cap = cv2.VideoCapture(1)
 client_sender = sender.Sender(('10.1.10.213', 60000))
 
 success, frame = video_cap.read()
@@ -15,7 +15,7 @@ bytes_stream = BytesIO()
 np.save(bytes_stream, scaled_frame)
 print(len(bytes_stream.getvalue()))
 
-cv2.imshow("frame", scaled_frame)
+cv2.imshow("frame", frame)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
@@ -29,9 +29,12 @@ while True:
         break
 
     scaled_frame = frame.resize(100, 100)
-
+    cv2.imshow("frame", frame)
     # Send frame accross client_sender
     client_sender.send_img(scaled_frame)
+    if cv2.waitKey(1) == ord('q'):
+        break
+
 
 
 client_sender.close_socket()
