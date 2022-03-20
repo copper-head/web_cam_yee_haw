@@ -2,7 +2,7 @@ import cv2
 import constants
 import sender
 import numpy as np
-
+from io import BytesIO
 
 
 client_sender = sender.Sender(('10.1.10.100', 60000))
@@ -17,7 +17,12 @@ while True:
         client_sender.close_socket()
         break
     
-    frame = cv2.resize(frame.shape[1]*0.1, frame.shape[0]*0.1)
+    frame = cv2.resize(frame, (int(frame.shape[1]*0.1), int(frame.shape[0]*0.1)))
+
+    byte_stream = BytesIO()
+    np.save(byte_stream, frame)
+    print(byte_stream.getvalue())
+    break
 
     client_sender.send_img(frame)
 
